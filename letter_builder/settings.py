@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOCAL_FILE_DIR = os.path.join(BASE_DIR, 'letter_builder')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'letter_builder/Uploads')
+
+MEDIA_URL = '/Uploads/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'settings.apps.SettingsConfig',
 ]
 
 MIDDLEWARE = [

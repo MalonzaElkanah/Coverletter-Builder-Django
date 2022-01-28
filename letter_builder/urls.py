@@ -15,7 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
+from .views import IndexView, LetterView, CreateLetterView, UpdateLetterView, DeleteLetterView, \
+UserProfileView, CreateUserProfileView, UpdateUserProfileView, DeleteUserProfileView, \
+JobProfileView, CreateJobProfileView, UpdateJobProfileView, DeleteJobProfileView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+    path('', IndexView.as_view(), name="index"),
+
+    path('letters/', LetterView.as_view(), name="letters"),
+    path('letters/add/', CreateLetterView.as_view(), name="add-letter"),
+    path('letters/edit/<int:pk>/', UpdateLetterView.as_view(), name="edit-letter"),
+    path('letters/delete/<int:pk>/', DeleteLetterView.as_view(), name="delete-letter"),
+
+    path('user/profiles/', UserProfileView.as_view(), name="user-profiles"),
+    path('user/profiles/add/', CreateUserProfileView.as_view(), name="add-user-profile"),
+    path('user/profiles/edit/<int:pk>/', UpdateUserProfileView.as_view(), name="edit-user-profile"),
+    path('user/profiles/delete/<int:pk>/', DeleteUserProfileView.as_view(), name="delete-user-profile"),
+
+    path('job/profiles/', JobProfileView.as_view(), name="job-profiles"),
+    path('job/profiles/add/', CreateJobProfileView.as_view(), name="add-job-profile"),
+    path('job/profiles/edit/<int:pk>/', UpdateJobProfileView.as_view(), name="edit-job-profile"),
+    path('job/profiles/delete/<int:pk>/', DeleteJobProfileView.as_view(), name="delete-job-profile"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

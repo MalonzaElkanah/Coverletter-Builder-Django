@@ -1,0 +1,56 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} Update Profile {% endblock %}
+{% block content %}
+	<div class="row text-center">
+		<h3>User Profile</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			{% if state == 'EDIT' %}
+			<!-- For Edit Site Form -->
+			<form action="{% url 'edit-user-profile' object.id %}" method="post">
+			{% else %}
+			<!-- For Add Site Form --->
+			<form action="{% url 'add-user-profile' %}" method="post">
+			{% endif %}
+				<div class="row">
+					{% csrf_token %} 
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Job Title</label>
+  						<input type="text" class="form-control" name="title" value="{{object.title}}" placeholder="Eg. Web Developer, Junior Accountant" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">First Name</label>
+  						<input type="text" class="form-control" name="first_name" value="{{object.first_name}}" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Middle Name</label>
+  						<input type="text" class="form-control" name="middle_name" value="{{object.middle_name}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Last Name</label>
+  						<input type="text" class="form-control" name="last_name" value="{{object.last_name}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Email</label>
+  						<input type="email" class="form-control" name="email" value="{{object.email}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Phone Number</label>
+  						<input type="text" class="form-control" name="phone_number" value="{{object.phone_number}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Location</label>
+  						<input type="text" class="form-control" name="location" value="{{object.location}}">
+					</div>
+				</div>
+				<div class="row pt-4">
+					<div class="col-12">
+						<button class="btn btn-primary">SUBMIT</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

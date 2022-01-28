@@ -1,0 +1,105 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} Update Profile {% endblock %}
+{% block content %}
+	<div class="row text-center">
+		<h3>Job Profile</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			{% if state == 'EDIT' %}
+			<!-- For Edit Site Form -->
+			<form action="{% url 'edit-job-profile' object.id %}" method="post">
+			{% else %}
+			<!-- For Add Site Form --->
+			<form action="{% url 'add-job-profile' %}" method="post">
+			{% endif %}
+				<div class="row">
+					{% csrf_token %}
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Job Title</label>
+  						<input type="text" class="form-control" name="name" value="{{object.name}}" placeholder="Eg. Web Developer, Junior Accountant" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Experience</label>
+  						<input type="text" class="form-control" name="experience" value="{{object.experience}}" required>
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Organization</label>
+  						<input type="text" class="form-control" name="organization" value="{{object.organization}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Email</label>
+  						<input type="email" class="form-control" name="email" value="{{object.email}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Address</label>
+  						<input type="email" class="form-control" name="address" value="{{object.address}}">
+					</div>
+					<div class="col-md-6 mb-3">
+						<label class="form-label">Summary</label>
+  						<textarea class="form-control" name="description" rows="5">{{object.description}}</textarea>
+					</div>
+				</div>
+
+				<!-- div class="row pt-4">
+					<h5>Social Links</h5>
+				</div>
+				{% for link in object.links %}
+				<div class="row">
+					<div class="col-md-5 mb-3">
+						<label class="form-label">Link Name</label>
+  						<input type="text" class="form-control" name="name-link-{{link.id}}" value="{{link.name}}" required>
+					</div>
+					<div class="col-md-5 mb-3">
+						<label class="form-label">Link Url</label>
+  						<input type="text" class="form-control" name="link-link-{{link.id}}" value="{{link.link}}" required>
+					</div>
+					<div class="col-md-2">
+						<a class="btn btn-danger" href="javascript:void(0);">DELETE</a>
+					</div>
+				</div>
+				{% if forloop.last %}
+				<input type="hidden" name="form_num" value="0">
+				<div class="row form-row"></div>
+				{% endif %}
+				{% empty %}
+				<div class="row form-row">
+					<div class="row form-item">
+						<div class="col-md-5 mb-3">
+							<label class="form-label">Link Name</label>
+	  						<input type="text" class="form-control" name="name-link_1">
+						</div>
+						<div class="col-md-5 mb-3">
+							<label class="form-label">Link Url</label>
+	  						<input type="text" class="form-control" name="link-link_1">
+						</div>
+						<div class="col-md-2">
+							<a class="btn btn-danger trash" href="javascript:void(0);">DELETE</a>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" name="form_num" value="1">
+				{% endfor %}
+				
+				<div class="row">
+					<div class="col-md-2">
+						<a id="link-add-id" class="btn btn-outline-primary" href="#">Add More</a>
+					</div>
+					
+				</div-->
+				<div class="row pt-4">
+					<div class="col-12">
+						<button class="btn btn-primary">SUBMIT</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+{% block js %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JS Page Custom -->
+    <script src="{% static 'main/profile.js' %}"></script>
+{% endblock %}

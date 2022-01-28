@@ -1,0 +1,46 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} My Letters {% endblock %}
+{% block content %}
+<div class="row text-center">
+		<h3>Letters</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-striped">
+				<thead>
+				    <tr>
+				      	<th scope="col">Name</th>
+				      	<th scope="col">File</th>
+				      	<th scope="col">description</th>
+				      	<th scope="col">status</th>
+				      	<th scope="col" colspan="3">Action</th>
+
+				    </tr>
+				</thead>
+				<tbody>
+				{% for obj in object_list %}
+				    <tr>
+				      	<td>{{obj.name}}</td>
+				      	<td> 
+				      		<a href="{{obj.file.url}}">{{obj.file.name}}</a>
+				      	</td>
+				      	<td>{{obj.description}}</td>
+				      	<td>{{obj.status}}</td>
+				      	<td><a href="#" class="btn btn-primary">Preview</a></td>
+				      	<td><a href="#" class="btn btn-secondary">Edit</a></td>
+				      	<td><a href="#" class="btn btn-success">Generate Letter</a></td>
+				    </tr>
+				{% empty %}
+					<tr>
+						<td colspan="5" class="text-center">No Letter...<a href="#">Click Here to add.</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-12">
+			<a href="#" class="btn btn-primary">Add Profile</a>
+		</div>
+	</div>
+{% endblock %}

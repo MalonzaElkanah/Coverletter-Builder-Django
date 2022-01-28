@@ -1,0 +1,45 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} User Profile {% endblock %}
+{% block content %}
+<div class="row text-center">
+		<h3>User Profile</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-striped">
+				<thead>
+				    <tr>
+				    	<th scope="col">Title</th>
+				      	<th scope="col">Name</th>
+				      	<th scope="col">Email</th>
+				      	<th scope="col">description</th>
+				      	<th scope="col">status</th>
+				      	<th scope="col">location</th>
+				      	<th scope="col">Action</th>
+
+				    </tr>
+				</thead>
+				<tbody>
+				{% for obj in object_list %}
+				    <tr>
+				      	<td>{{obj.title}}</td>
+				      	<td>{{obj.first_name}} {{obj.middle_name}} {{obj.last_name}}</td>
+				      	<td>{{obj.email}}</td>
+				      	<td>{{obj.phone_number}}</td>
+				      	<td>{{obj.location}}</td>
+				      	<td><a href="#" class="btn btn-secondary">Edit</a></td>
+				    </tr>
+				{% empty %}
+					<tr>
+						<td colspan="5" class="text-center">No Profile...<a href="#">Click Here to add.</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-12">
+			<a href="#" class="btn btn-primary">Add Profile</a>
+		</div>
+	</div>
+{% endblock %}
