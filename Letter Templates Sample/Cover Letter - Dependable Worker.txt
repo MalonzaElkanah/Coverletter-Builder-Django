@@ -1,0 +1,16 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+Dear Sir/Madam,
+
+If {{job_profile.company}} requires a high-energy {{job_profile.title}} with a no-excuses attitude and is up to any task, then I’m the person you’re seeking. 
+
+As you can see, my work history is thoroughly outlined in my resume. As a/an _______________, I have acquired _______________ experience while meeting tough deadlines. I am dependable and can work without supervision. I have been described as having the ability to effectively multitask in challenging situations and as having the ability to meet critical deadlines.
+
+I will take the liberty of calling you next week in hopes of scheduling a personal interview. Thank you for your consideration. Have a great day!
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.

@@ -1,0 +1,45 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} EDIT Letter Template: {{object.name}} {% endblock %}
+{% block content %}
+    <section class="section">
+        <div class="section-body"> 
+
+        <!-- Add Letter Form Body  -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form method="post" action="{% url 'template-edit-letter' object.id %}" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <textarea id="summernote" name="letter">{{letter_text}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- /Add Letter Form Body  -->
+        </div>
+    </section>   
+{% endblock %}
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+</script>
+{% endblock %}

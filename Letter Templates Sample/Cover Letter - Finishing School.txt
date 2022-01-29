@@ -1,0 +1,19 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+{{job_profile.adress}}
+
+Dear Sir/Madam,
+RE: {{job_profile.title}}.
+
+I am interested in securing a position with {{job_profile.company}} where my abilities and qualifications can be fully applied to our mutual benefit. My resume is enclosed for your review and consideration.
+
+I am currently finishing my studies to obtain a degree in _______________ at _______________. Having established competence in _______________, I have innovative ideas and the courage to use them.
+
+The enclosed resume will provide you with further particulars on contributions that I have made to my employer. Perhaps {{job_profile.company}} may wish to capitalize on my creativity and energy as well. If so, I can be reached at either my office or home telephone numbers listed above.
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.

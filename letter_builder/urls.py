@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 
 from .views import IndexView, LetterView, CreateLetterView, UpdateLetterView, DeleteLetterView, \
 UserProfileView, CreateUserProfileView, UpdateUserProfileView, DeleteUserProfileView, \
-JobProfileView, CreateJobProfileView, UpdateJobProfileView, DeleteJobProfileView
+JobProfileView, CreateJobProfileView, UpdateJobProfileView, DeleteJobProfileView, \
+LetterDetailView, IframeLetterView, EditLetterTemplateFileView
 
 urlpatterns = [
     path('', IndexView.as_view(), name="index"),
@@ -29,6 +30,9 @@ urlpatterns = [
     path('letters/add/', CreateLetterView.as_view(), name="add-letter"),
     path('letters/edit/<int:pk>/', UpdateLetterView.as_view(), name="edit-letter"),
     path('letters/delete/<int:pk>/', DeleteLetterView.as_view(), name="delete-letter"),
+    path('letters/view/<int:pk>/', LetterDetailView.as_view(), name="view-letter"),
+    path('letters/iframe/<int:pk>/', IframeLetterView.as_view(), name='iframe-letter'),
+    path('letters/template/edit/<int:pk>/', EditLetterTemplateFileView.as_view(), name='template-edit-letter'),
 
     path('user/profiles/', UserProfileView.as_view(), name="user-profiles"),
     path('user/profiles/add/', CreateUserProfileView.as_view(), name="add-user-profile"),

@@ -1,0 +1,19 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+{{job_profile.adress}}
+
+Dear Sir/Madam,
+RE: {{job_profile.title}} APPLICATION.
+
+Based on the criteria you listed, I believe I am an excellent candidate for the position of {{job_profile.title}}.  Please accept the enclosed resume as my application for the position.
+
+As a recent graduate, my professional job experience is necessarily limited. However, I believe that you will find, and previous employers will verify, that I exhibit intelligence, common sense, initiative, maturity, and stability, and that I am eager to make a positive contribution to your organization.
+
+I am therefore respectfully requesting a personal interview. I feel confident that a frank, in-person discussion will determine if a compatible environment exists for a future relationship. I would welcome this opportunity and assure you that this would be time well spent. In advance, I thank you for your consideration and look forward to meeting with you in the near future.
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.

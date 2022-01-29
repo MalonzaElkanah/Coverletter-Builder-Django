@@ -1,0 +1,125 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} My Letters {% endblock %}
+{% block content %}
+<div class="row text-center">
+		<h3>Cover Letters Template</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-striped">
+				<thead>
+				    <tr>
+				      	<th scope="col">Name</th>
+				      	<th scope="col">File(*.txt)</th>
+				      	<th scope="col">description</th>
+				      	<th scope="col">status</th>
+				      	<th scope="col" colspan="3">Action</th>
+				    </tr>
+				</thead>
+				<tbody>
+				{% for obj in object_list %}
+				    <tr>
+				      	<td>{{obj.name}}</td>
+				      	<td> <a href="{{obj.file.url}}">{{obj.file.name}}</a></td>
+				      	<td>{{obj.description}}</td>
+				      	<td>{{obj.status}}</td>
+				      	<td><a href="{% url 'view-letter' obj.id %}" class="btn btn-primary">View</a></td>
+				      	<td><a href="{% url 'edit-letter' obj.id %}" class="btn btn-secondary">Edit</a></td>
+				      	<td><a href="{% url 'template-edit-letter' obj.id %}" class="btn btn-success">Edit Template</a></td>
+				    </tr>
+				{% empty %}
+					<tr>
+						<td colspan="5" class="text-center">No Letter...<a href="{% url 'add-letter' %}">Click Here to add.</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-12">
+			<a href="{% url 'add-letter' %}" class="btn btn-primary">Add Letter Template</a>
+		</div>
+	</div>
+
+	<div class="row text-center">
+		<h3>User Profile</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-striped">
+				<thead>
+				    <tr>
+				    	<th scope="col">Title</th>
+				      	<th scope="col">Name</th>
+				      	<th scope="col">Email</th>
+				      	<th scope="col">phone</th>
+				      	<th scope="col">location</th>
+				      	<th scope="col">Action</th>
+
+				    </tr>
+				</thead>
+				<tbody>
+				{% for obj in user_profiles %}
+				    <tr>
+				      	<td>{{obj.title}}</td>
+				      	<td>{{obj.first_name}} {{obj.middle_name}} {{obj.last_name}}</td>
+				      	<td>{{obj.email}}</td>
+				      	<td>{{obj.phone_number}}</td>
+				      	<td>{{obj.location}}</td>
+				      	<td><a href="{% url 'edit-user-profile' obj.id %}" class="btn btn-secondary">Edit</a></td>
+				    </tr>
+				{% empty %}
+					<tr>
+						<td colspan="5" class="text-center">No User Data...<a href="{% url 'add-user-profile' %}">Click Here to add.</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-12">
+			<a href="{% url 'add-user-profile' %}" class="btn btn-primary">Add User Data</a>
+		</div>
+	</div>
+
+
+	<div class="row text-center pt-4">
+		<h3>Job Profile</h3>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-striped">
+				<thead>
+				    <tr>
+				    	<th scope="col">Name</th>
+				      	<th scope="col">Experience</th>
+				      	<th scope="col">Email</th>
+				      	<th scope="col">organization</th>
+				      	<th scope="col">adress</th>
+				      	<th scope="col">description</th>
+				      	<th scope="col">Action</th>
+				    </tr>
+				</thead>
+				<tbody>
+				{% for obj in job_profiles %}
+				    <tr>
+				      	<td>{{obj.name}}</td>
+				      	<td>{{obj.experience}}</td>
+				      	<td>{{obj.email}}</td>
+				      	<td>{{obj.organization}}</td>
+				      	<td>{{obj.address}}</td>
+				      	<td>{{obj.description}}</td>
+				      	<td><a href="{% url 'edit-job-profile' obj.id %}" class="btn btn-secondary">Edit</a></td>
+				    </tr>
+				{% empty %}
+					<tr>
+						<td colspan="5" class="text-center">No Job Data...<a href="{% url 'add-job-profile' %}">Click Here to add.</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-12">
+			<a href="{% url 'add-job-profile' %}" class="btn btn-primary">Add Job Data</a>
+		</div>
+	</div>
+{% endblock %}

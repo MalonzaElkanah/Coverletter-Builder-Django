@@ -1,0 +1,20 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+{{job_profile.adress}}
+
+Dear Sir/Madam,
+RE: {{job_profile.title}}.
+
+Enclosed is my resume outlining more than {{job_profile.experience}} years extensive experience in _______________. As you will see, my credentials include progressive responsibility with documented success in the areas of _______________ at various organizational levels.
+
+My impressive background will provide your department with a self-motivated, helpful, and flexible associate who knows what is needed to get the job done. I am both persuasive and capable of developing rapport and trust, as well as experienced in influencing the attitudes and ideas of others.
+
+Should you have an appropriate {{job_profile.title}} opening, I would welcome the opportunity to meet with you personally to explore the contributions that I could make to your corporation.
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.
+

@@ -1,0 +1,17 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+Dear Sir/Madam,
+
+If your firm is seeking a professional who has demonstrated sound business judgement, decisiveness, well-developed planning, analytical, and communication skills, and a consistently high level of performance in a variety of progressively responsible and challenging assignments, please see my enclosed resume.
+
+I am accustomed to a fast-paced environment where deadlines are a priority and handling multiple jobs simultaneously is a requirement. I enjoy a challenge and work hard to attain my goals. Constant communication with all levels of management has strengthened my interpersonal skills.
+
+I will contact you next week to inquire about the possibility of an interview. In the meantime, please do not hesitate to contact me at {{user_profile.email}}.
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.
+

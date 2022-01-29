@@ -1,0 +1,59 @@
+{% extends "settings/base.html" %}
+{% load static %}
+{% block title %} Letter: {{object.name}} {% endblock %}
+
+{% block content %}
+    <div class="row text-center">
+        <h3>Letter: {{object.name}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+        {% autoescape off %}
+            {{letter_html | safe }}
+        {% endautoescape %}
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <textarea id="letter-text" style="display:none">{{letter_text}}</textarea>
+            <a id="copy-text" href="#" class="btn btn-primary" title="Copy to Clipboard">Copy Text</a>
+            <div id="printerDiv" style="display:none"></div>
+            <a id="print-preview" href="#" class="btn btn-primary">Print Letter</a>
+            <a href="{% url 'template-edit-letter' object.id %}" class="btn btn-primary">Edit Template</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#copy-text").click(function(event){
+            event.preventDefault();
+            // Get Data to copy
+            //$("#letter-text").val();
+            //copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText($("#letter-text").val());
+            $("#copy-text").html("Letter Copied");
+            $("#copy-text").prop('title', 'Letter Copied to Clipboard');
+            $("#copy-text").removeClass('btn-primary');
+            $("#copy-text").addClass('btn-outline-success');
+        });
+
+        $("#copy-text").mouseout(function(){
+            $("#copy-text").html("Copy Text");
+            $("#copy-text").prop('title', 'Copy to Clipboard');
+            $("#copy-text").removeClass('btn-outline-success');
+            $("#copy-text").addClass('btn-primary');
+        });
+
+        $("#print-preview").click(function(event){
+            event.preventDefault();
+            //window.open("#");
+            //window.close();
+            //window.print();
+            var div = document.getElementById("printerDiv");
+            div.innerHTML = '<iframe src="{% url 'iframe-letter' object.id %}" onload="this.contentWindow.print();"></iframe>';
+        });
+        
+    </script>
+{% endblock %}

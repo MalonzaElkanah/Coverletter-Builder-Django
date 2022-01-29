@@ -1,0 +1,16 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+Dear Sir/Madam,
+
+If {{job_profile.company}} requires a high-energy {{job_profile.title}} with a no-excuses attitude and is up to any task, then I’m the person you’re seeking. My qualifications and experience will enable me to fulfill your expectations.
+
+I am conscientious in my personal and professional life. I take pride in myself and my work, and derive considerable satisfaction from doing an assignment well. I cope well with high-stress situations and can manage a variety of projects simultaneously. My specific proficiencies include _______________. I am seeking a responsible position that offers challenge and opportunity.
+
+I believe my background provides the skills you require for this position. I would welcome the opportunity for a personal interview to further discuss my qualifications.
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.

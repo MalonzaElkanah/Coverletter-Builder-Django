@@ -1,0 +1,15 @@
+<p>{{user_profile.first_name}} {{user_profile.last_name}},<br>
+{{user_profile.phone_number}}.<br>
+{{user_profile.email}}<br>
+<br>
+{{today | date:"F d, Y"}}</p>
+<p>Dear Sir/Madam,<br>
+<br>
+In response to the {{job_profile.title}} position you have posted on _______________, I am sending you a copy of my CV. A comparison of my qualifications to your requirements, as specified in this advertisement, suggests that I would be an excellent candidate for this position. </p>
+<ul>{% for qualification in job_profile.qualifications %}
+<li>{{qualification.name}}</li>
+{% endfor %}</ul>
+<p>I am conscientious in my personal and professional life. I take pride in myself and my work, and derive considerable satisfaction from doing an assignment well. I cope well with high-stress situations and can manage a variety of projects simultaneously.
+<br><br>I believe my background provides the skills you require for this position. I would welcome the opportunity for a personal interview to further discuss my qualifications.
+<br><br>Sincerely,
+<br><br>{{user_profile.first_name}} {{user_profile.last_name}}.</p>

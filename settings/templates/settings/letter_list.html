@@ -11,36 +11,33 @@
 				<thead>
 				    <tr>
 				      	<th scope="col">Name</th>
-				      	<th scope="col">File</th>
+				      	<th scope="col">File(*.txt)</th>
 				      	<th scope="col">description</th>
 				      	<th scope="col">status</th>
 				      	<th scope="col" colspan="3">Action</th>
-
 				    </tr>
 				</thead>
 				<tbody>
 				{% for obj in object_list %}
 				    <tr>
 				      	<td>{{obj.name}}</td>
-				      	<td> 
-				      		<a href="{{obj.file.url}}">{{obj.file.name}}</a>
-				      	</td>
+				      	<td> <a href="{{obj.file.url}}">{{obj.file.name}}</a></td>
 				      	<td>{{obj.description}}</td>
 				      	<td>{{obj.status}}</td>
-				      	<td><a href="#" class="btn btn-primary">Preview</a></td>
-				      	<td><a href="#" class="btn btn-secondary">Edit</a></td>
-				      	<td><a href="#" class="btn btn-success">Generate Letter</a></td>
+				      	<td><a href="{% url 'view-letter' obj.id %}" class="btn btn-primary">View</a></td>
+				      	<td><a href="{% url 'edit-letter' obj.id %}" class="btn btn-secondary">Edit</a></td>
+				      	<td><a href="{% url 'template-edit-letter' obj.id %}" class="btn btn-success">Edit Template</a></td>
 				    </tr>
 				{% empty %}
 					<tr>
-						<td colspan="5" class="text-center">No Letter...<a href="#">Click Here to add.</a></td>
+						<td colspan="5" class="text-center">No Letter...<a href="{% url 'add-letter' %}">Click Here to add.</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>
 			</table>
 		</div>
 		<div class="col-12">
-			<a href="#" class="btn btn-primary">Add Profile</a>
+			<a href="{% url 'add-letter' %}" class="btn btn-primary">Add Letter</a>
 		</div>
 	</div>
 {% endblock %}

@@ -1,0 +1,14 @@
+{{user_profile.first_name}} {{user_profile.last_name}},
+{{user_profile.phone_number}}.
+{{user_profile.email}}
+
+{{today | date:"F d, Y"}}
+
+Dear Sir/Madam,
+				
+I am responding to the {{job_profile.title}} position. I have {{job_profile.experience}} years of experience in the _____________________ industry. I have managed cross-functional teams and delivered complex projects with aggressive timelines during the past ____ years (or other key contribution).  I have an excellent understanding of the ______________ process and __________ life cycle.  
+
+Academically, I have _______________ (degree) in ________________ (specialty). With my extensive experience in the ______ industry and strong academic background, I am confident of contributing very well to your company. I am attaching my resume and look forward to talking with you.
+
+Sincerely,
+{{user_profile.first_name}} {{user_profile.last_name}}.

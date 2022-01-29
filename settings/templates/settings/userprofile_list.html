@@ -13,8 +13,7 @@
 				    	<th scope="col">Title</th>
 				      	<th scope="col">Name</th>
 				      	<th scope="col">Email</th>
-				      	<th scope="col">description</th>
-				      	<th scope="col">status</th>
+				      	<th scope="col">Phone_number</th>
 				      	<th scope="col">location</th>
 				      	<th scope="col">Action</th>
 
@@ -28,18 +27,18 @@
 				      	<td>{{obj.email}}</td>
 				      	<td>{{obj.phone_number}}</td>
 				      	<td>{{obj.location}}</td>
-				      	<td><a href="#" class="btn btn-secondary">Edit</a></td>
+				      	<td><a href="{% url 'edit-user-profile' obj.id %}" class="btn btn-secondary">Edit</a></td>
 				    </tr>
 				{% empty %}
 					<tr>
-						<td colspan="5" class="text-center">No Profile...<a href="#">Click Here to add.</a></td>
+						<td colspan="5" class="text-center">No User Data...<a href="{% url 'add-user-profile' %}">Click Here to add.</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>
 			</table>
 		</div>
 		<div class="col-12">
-			<a href="#" class="btn btn-primary">Add Profile</a>
+			<a href="{% url 'add-user-profile' %}" class="btn btn-primary">Add User Data</a>
 		</div>
 	</div>
 {% endblock %}
